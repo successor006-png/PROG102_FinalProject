@@ -5,8 +5,7 @@
 **Team Members:**
 - Arsiekeh Mansaray
 - Saran Janneh
-- Baimba S Sessay
-
+  
 **Project Description:**
 A Digital Public Good system designed to address 
 a real-world problem aligned with the UN SDGs.
