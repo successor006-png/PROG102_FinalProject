@@ -20,6 +20,7 @@ Built as the final project for **PROG102 — Principles of Software Engineering*
 - [Prototype Screens](#-prototype-screens)
 - [System Architecture](#-system-architecture)
 - [SDLC Methodology](#-sdlc-methodology)
+- [Project Management](#-project-management)
 - [Getting Started](#-getting-started)
 - [Default Login (Demo)](#-default-login-demo)
 - [SDG Relevance](#-sdg-relevance)
@@ -97,7 +98,9 @@ Wi Stall follows a **layered web application architecture**:
 - The **Report Generation Module** queries the database to produce activity, occupancy, and revenue reports.
 - A central **Database** stores all trader, stall, allocation, and payment records, ensuring consistency across modules.
 
-*(See `/docs` for the full architecture diagram.)*
+![System Architecture Diagram](./docs/architecture-diagram.png)
+*Figure 1: System Architecture Diagram — Market Stall Allocation System*
+<img width="582" height="782" alt="image" src="https://github.com/user-attachments/assets/3469e464-e9df-4e69-af92-62f58b6d5932" />
 
 ## 🔄 SDLC Methodology
 
@@ -112,7 +115,32 @@ This project follows the **Waterfall Model**, chosen because the system's requir
 | 5. Deployment | Server configuration, database setup, and documentation |
 | 6. Maintenance | Ongoing monitoring, bug fixes, and feature updates |
 
-Project planning included a **Gantt chart**, **Network Diagram**, and a **Risk Management** plan (see `/docs`).
+## 📊 Project Management
+
+### Gantt Chart
+
+The project timeline was planned across six weeks, sequencing each SDLC phase from requirements analysis through deployment.
+
+![Gantt Chart](./docs/gantt-chart.png)
+*Figure 2: Project Gantt Chart showing development timeline across six weeks*
+<img width="900" height="406" alt="image" src="https://github.com/user-attachments/assets/7ee2d943-f06a-4855-bb4f-671de005e337" />
+
+### Network Diagram
+
+The Network Diagram maps the sequential dependencies between project activities, showing which tasks had to be completed before the next phase could begin.
+
+![Network Diagram](./docs/network-diagram.png)
+*Figure 3: Network Diagram showing sequential task dependencies*
+<img width="940" height="635" alt="image" src="https://github.com/user-attachments/assets/64f2fad7-2fc8-4558-b46b-26ab7ecff18e" />
+
+
+### Risk Management
+
+Key risks identified for the project — along with their likelihood, impact, and mitigation strategies — are documented below.
+
+![Risk Management Plan](./docs/risk-management.png)
+*Figure 4: Risk Management Plan*
+<img width="940" height="910" alt="image" src="https://github.com/user-attachments/assets/26a4e860-8b2d-48df-beaf-fe6a1aa04787" />
 
 ## 🚀 Getting Started
 
@@ -181,48 +209,3 @@ See [`LICENSE`](./LICENSE) for full terms.
 - United Nations. (2015). *Sustainable Development Goals: SDG 8 — Decent Work and Economic Growth.* https://sdgs.un.org/goals/goal8
 - PROG102 — Principles of Software Engineering Lecture Notes, Limkokwing University of Creative Technology, Sierra Leone, 2026.
 -
-## Project structure
-
-```
-wi-stall/
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-└── src/
-    ├── main.jsx            # React entry point
-    ├── App.jsx              # Top-level routing between admin/trader views
-    ├── index.css            # Tailwind + global styles
-    ├── lib/
-    │   └── db.js             # localStorage data layer, seed data, helpers
-    └── components/
-        ├── AuthScreen.jsx    # Login / trader registration
-        ├── Shell.jsx         # Header + tab navigation
-        ├── StallMap.jsx      # Visual floor plan
-        ├── ui/                # Badge, Modal, Toast, StatCard, Field
-        ├── admin/             # Overview, Traders, Stalls, Applications, Allocations
-        └── trader/            # Browse, Applications, Allocation, Profile
-```
-
-## Data model
-
-The system currently ships with 3 seeded markets (Big Market, Lumley Market,
-Congo Market) and 12 stalls each. All data — markets, stalls, traders,
-allocations, and user accounts — lives in `localStorage` under the key
-`wistall_db_v1`, so it persists across page reloads on the same browser/device.
-
-To reset all data, open the browser console and run:
-```js
-localStorage.removeItem('wistall_db_v1')
-```
-then refresh the page.
-
-## Known limitations (documented for the report)
-
-- Passwords are stored in plain text in this prototype — a production version
-  would need hashing (e.g. bcrypt) and a real backend/database.
-- Data is local to one browser only; it is not shared across devices. A
-  production deployment would move `src/lib/db.js` to call a real API backed
-  by a database (e.g. PostgreSQL) instead of `localStorage`.
-- No payment tracking is included in this version by design.
